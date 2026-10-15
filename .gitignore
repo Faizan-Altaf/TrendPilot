@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Secrets
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# Local databases and generated outputs
+*.db
+*.sqlite
+*.sqlite3
+outputs/
+results/
+exports/
+
+# Large local model files
+*.gguf
+*.safetensors
+*.pt
+*.pth
+*.bin
+
+# Editor and operating system
+.vscode/
+.DS_Store
+Thumbs.db
