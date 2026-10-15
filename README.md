@@ -1,34 +1,143 @@
-# TrendPilot — Agentic AI Content Planning Agent
+# TrendPilot AI 🚀
 
-TrendPilot is a local-LLM content planning assistant built for the AIRI Team PITB AI Internship Task 2.
+**An AI-powered content planning agent built with Python, Ollama, Qwen 2.5 3B, and Streamlit.**
 
-## Features
-- Content ideas, captions, hashtags, short-video scripts, titles, and thumbnail wording
-- Structured JSON output, validation, and one repair attempt
-- Optional content review
-- File Saver for TXT, Markdown, and JSON
-- Persistent SQLite task memory
-- Local Streamlit interface using Ollama
-- Automated checks and a five-output batch workflow
+TrendPilot helps turn different topics into structured content plans, ideas, captions, hashtags, short-form video scripts, titles, thumbnail text, and content-improvement suggestions.
 
-## Stack
-Python, Ollama, Qwen 2.5 3B, SQLite, Streamlit, JSON, Markdown.
+The application runs locally using Ollama and provides a Streamlit interface.
 
-## Setup
-1. Install Ollama from https://ollama.com/.
-2. Download the model: `ollama pull qwen2.5:3b`
-3. Install packages: `python -m pip install ollama streamlit`
-4. Open `TrendPilot_Updated.ipynb` in VS Code and run cells in order.
-5. Run the Streamlit app using the command printed by the notebook.
+## ✨ Features
 
-## Agent workflow
-Receive topic/audience/platform -> validate inputs -> generate structured plan -> validate JSON -> optionally repair/review -> save JSON and Markdown -> store task in SQLite -> return result.
+- AI-powered content planning for different topics and audiences
+- Content ideas and audience-focused hooks
+- Reel and short-video scripts with scenes and voice-over text
+- Captions and hashtags
+- Titles and thumbnail text
+- Optional web research for topics that need supporting information
+- Persistent memory and history using SQLite
+- Save generated content in JSON, Markdown, and TXT formats
+- Streamlit user interface
+- Local language-model inference through Ollama
 
-## Output and memory
-Content plans are saved in `outputs/`. Task history is stored in `data/trendpilot_memory.db`.
+## 🛠️ Tech Stack
 
-## Limitations
-TrendPilot does not verify live trends. Model outputs can be inaccurate or repetitive and should be reviewed. The Streamlit interface runs locally and requires Ollama to be available on the same computer.
+- Python
+- Ollama
+- Qwen 2.5 3B
+- Streamlit
+- SQLite
+- Requests and BeautifulSoup
+- JSON, Markdown, and TXT
 
-## Testing
-Run the notebook's automated test cell. Report the actual pass/fail results rather than assuming tests passed. Run the five-output batch separately; it makes five model calls.
+## 🧠 How It Works
+
+1. Enter a topic or content goal.
+2. Select the target audience, platform, tone, and content mode.
+3. Search for relevant web results when research is needed and available.
+4. Generate content using the local language model.
+5. Review the generated ideas, scripts, captions, and suggestions.
+6. Save and revisit results using the application's memory and export features.
+
+## 📁 Project Structure
+
+```text
+TrendPilot/
+├── app/
+│   ├── agent.py
+│   ├── main.py
+│   ├── memory.py
+│   ├── prompts.py
+│   ├── streamlit_app.py
+│   └── tools.py
+├── data/
+├── outputs/
+├── report/
+├── tests/
+├── README.md
+├── requirements.txt
+├── test_app.py
+└── TrendPilot_Updated (3).ipynb
+```
+
+## ⚙️ Requirements
+
+- Python
+- Ollama
+- The Qwen 2.5 3B model
+- Project dependencies listed in `requirements.txt`
+
+## 🚀 Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Faizan-Altaf/TrendPilot.git
+cd TrendPilot
+```
+
+### 2. Create a virtual environment
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
+
+### 3. Install dependencies
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+### 4. Download the model
+
+```bash
+ollama pull qwen2.5:3b
+```
+
+Make sure Ollama is running before launching the application.
+
+### 5. Run the Streamlit app
+
+```bash
+python -m streamlit run app/streamlit_app.py
+```
+
+Open the local URL displayed in the terminal.
+
+## 💾 Memory and File Saving
+
+TrendPilot uses SQLite for persistent memory and can save generated content in supported export formats. Saved files and database locations depend on the application configuration.
+
+## 🧪 Testing
+
+Run the project's tests with:
+
+```bash
+python -m pytest -q
+```
+
+Test different topics, audiences, platforms, and content modes. Also check file exports, stored history, and behavior when web research is unavailable.
+
+## ⚠️ Limitations
+
+- Output quality depends on the local model and prompt.
+- Generation speed depends on available hardware and model configuration.
+- Web research depends on internet access and search availability.
+- Search snippets are not the same as fully verified research.
+- Generated facts and recommendations should be checked before publication.
+
+## 🔮 Future Improvements
+
+- Add a dedicated AI review and quality-scoring stage.
+- Improve source retrieval and verification.
+- Expand automated tests and failure handling.
+- Optimize generation speed.
+- Add more content templates and platform-specific workflows.
+
+## 👨‍💻 Project Information
+
+**Project:** TrendPilot AI  
+**Developer:** Faizan Altaf  
+**Repository:** https://github.com/Faizan-Altaf/TrendPilot
+
+TrendPilot explores local LLMs, agentic workflows, tool use, persistent memory, and AI-assisted content planning.
